@@ -1,0 +1,89 @@
+export ARCH=arm64
+export CC=clang
+export SUBARCH=arm64 
+export HEADER_ARCH=arm64 
+export PATH="$home/zaxismxt/proton-clang/bin:$PATH"
+export STRIP="$home/zaxismxt/proton-clang/bin/strip"
+make 0=out clean
+make 0=out mrproper
+make 0=outX00P_defconfig 
+make -j($nproc --all) O=out\
+         ARCH=arm64\ 
+         AR=llvm-ar\
+         NM=llvm-nm\ 
+         OBJCOPY=llvm-objcopy\ 
+         OBJDUMP=llvm-objdump\
+         STRIP=llvm-strip\ 
+         CC=clang\ 
+         CROSS_COMPILE=aarch64-linux-gnu-\ 
+         CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2&1
+
+
+
+#!/usr/bin/bash 
+
+if [[ -d "out" ]]
+then 
+cd out && make clean && make distclean && make mrproper && cd  ..
+else 
+  mkdir -p out
+  fi
+  
+  make O=out ARCH=arm64 X00P_defconfig
+sattire=`find / -type d -name "proton-clang" 2>/dev/null`
+
+PATH="$sattire/bin:$PATH" \
+ 
+  make                O=out \
+                      ARCH=arm64 \
+                      CC=clang \
+                      CROSS_COMPILE=aarch64-linux-gnu- \
+                      CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+                      -j8
+                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ZAxis #X00P 
+ZAxis Kernel v1.1 for Asus Max M1 {XOOP\XOOPD}
+
+▪️ Download
+
+Changelog:
+• CPU GOV changed to powersave for better battery live 
+• Disable CPU Boost 
+• Kernel Compiled with Proton clang 13(latest)
+
+Credits 
+•To the stormbreaker team for the kernel source
+•@gabbyintegral for Helping and Guidance 
+
+By @ZEUTS
+Join @ZAxisUpdates
+
+
+https://t.me/ZAxisUpdates/3
+https://mxt.zaxismxt.workers.dev/0:/ZAxis-X00P-1.zip
